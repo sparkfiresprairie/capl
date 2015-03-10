@@ -7,6 +7,7 @@ From smart phones, to multi-core CPUs and GPUs, to the world's largest supercomp
 Lab1. Locality in a CPU
 -----------------------
 In this lab, we use dense matrix-matrix multiplication to study the effects of locality on performance and power dissipation. We explore two programming styles in the domain of dense linear algebra: iterative and recursive with cache-aware and cache-oblivious algorithm and learn about 3 tools that can help with architecture optimizations (performance counters, CACTI and PIN).
+    
     // Baseline matrix-matrix multiplication
     #include <stdlib.h>
     
@@ -70,6 +71,14 @@ In this lab, we use dense matrix-matrix multiplication to study the effects of l
       return (0);
     }
 
-Step1: We try to improve the performance of the baseline version above on a uni-processor. Most of the performance to be gained is with locality optimizations, followed by converting the code to use modern processor's short-vector SIMD units. To calculate the GFLOPS of our application we use the performance counters to measure the number of cycles, instructions and cache hit and misses required by our application. (Although PAPI package is the best supported, we use perf tool instead for the convenience of teaching.) 
+Step1: Improve the performance of the baseline version above on a uni-processor. Most of the performance to be gained is with locality optimizations, followed by converting the code to use modern processor's short-vector SIMD units. To calculate the GFLOPS of our application we use the performance counters to measure the number of cycles, instructions and cache hits and misses required by our application. (Although PAPI package is the best supported, we use perf tool instead for the convenience of teaching.) 
+
+Step2: Try both cache-aware and cache-oblivious methods to improve locality and hence performance (optimizing registers as well as the memory hierarchy).
+
+Step3: Modify existing PIN tools to implement a read- and write-allocate, write-back, inclusive 2-level cache model with LRU replacement.
+
+Step4: Use CACTI tool to estimate the power and energy consumed by the matrix multiplication and the potential power savings of locality optimizations.
+
+[Here](./lab1) are codes of Lab1.
 
 
