@@ -70,6 +70,6 @@ In this lab, we use dense matrix-matrix multiplication to study the effects of l
       return (0);
     }
 
-Step1: We try to improve the performance of the baseline version 
+Step1: We try to improve the performance of the baseline version above 
 
 
