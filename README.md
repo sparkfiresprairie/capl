@@ -75,11 +75,11 @@ Step1: Improve the performance of the baseline version above on a uni-processor.
 
 Step2: Use the performance counters to measure the number of cycles, instructions and cache hits and misses required by our application to calculate GFLOPS. (Although PAPI package is the best supported, we use perf tool instead for the convenience of teaching.) 
 
-Step2: Try both cache-aware and cache-oblivious methods to improve locality and hence performance (optimizing registers as well as the memory hierarchy).
+Step3: Try both cache-aware and cache-oblivious methods to improve locality and hence performance (optimizing registers as well as the memory hierarchy).
 
-Step3: Modify existing PIN tools to implement a read- and write-allocate, write-back, inclusive 2-level cache model with LRU replacement.
+Step4: Modify existing PIN tools to implement a read- and write-allocate, write-back, inclusive 2-level cache model with LRU replacement.
 
-Step4: Use CACTI tool to estimate the power and energy consumed by the matrix multiplication and the potential power savings of locality optimizations.
+Step5: Use CACTI tool to estimate the power and energy consumed by the matrix multiplication and the potential power savings of locality optimizations.
 
 [Here](./lab1) are codes of Lab1.
 
