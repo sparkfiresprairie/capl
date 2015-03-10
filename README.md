@@ -70,6 +70,6 @@ In this lab, we use dense matrix-matrix multiplication to study the effects of l
       return (0);
     }
 
-Step1: We try to improve the performance of the baseline version above 
+Step1: We try to improve the performance of the baseline version above on a uni-processor. Most of the performance to be gained is with locality optimizations, followed by converting the code to use modern processor's short-vector SIMD units. To calculate the GFLOPS of our application we use the performance counters to measure the number of cycles, instructions and cache hit and misses required by our application. (Although PAPI package is the best supported, we use perf tool instead for the convenience of teaching.) 
 
 
