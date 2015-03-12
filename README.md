@@ -84,12 +84,13 @@ Step5: Use CACTI tool to estimate the power and energy consumed by the matrix mu
 [Here](./lab1) are codes of Lab1.
 
 Lab2.  A Simple CUDA Renderer
-=============================
+-----------------------------
 100 points total
 
 ![image](https://github.com/sparkfiresprairie/capl/blob/master/lab2/lab2.png)
 
 In this lab, we write a parallel renderer in CUDA that draws colored circles. While this renderer is very simple, parallelizing the renderer will require us to design and implement data structures that can be efficiently constructed and manipulated in parallel.
 
-Part1 - CUDA Warm-Up 1: SAXPY
+#Part1 - CUDA Warm-Up 1: SAXPY
+Warm-up task to implement the SAXPY in CUDA. Compare the performance with the sequential CPU-based implementation of SAXPY (time, bandwidth, etc) [[saxpy.cu](./lab2/saxpy.cu)]
 
