@@ -91,6 +91,10 @@ Lab2.  A Simple CUDA Renderer
 
 In this lab, we write a parallel renderer in CUDA that draws colored circles. While this renderer is very simple, parallelizing the renderer will require us to design and implement data structures that can be efficiently constructed and manipulated in parallel.
 
-###Part1 - CUDA Warm-Up 1: SAXPY
+###Part1 - CUDA Warm-Up 1: SAXPY (5 pts)
 Warm-up task to implement the SAXPY in CUDA. Compare the performance with the sequential CPU-based implementation of SAXPY (time, bandwidth, etc) [[saxpy.cu](./lab2/saxpy.cu)]
+
+###Part2 - CUDA Warm-Up 2: Parallel Prefix-Sum (10 pts)
+
+###Part3 - A Simple Circle Renderer (85 pts)
 
