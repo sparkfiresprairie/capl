@@ -77,7 +77,7 @@ Step2: Use the performance counters to measure the number of cycles, instruction
 
 Step3: Try both cache-aware and cache-oblivious methods to improve locality and hence performance (optimizing registers as well as the memory hierarchy).
 
-Step4: Modify existing PIN tools to implement a read- and write-allocate, write-back, inclusive 2-level cache model with LRU replacement.
+Step4: Modify existing PIN tools to implement a read- and write-allocate, write-back, inclusive 2-level cache model with LRU replacement. [[cache.H](./lab1/cache.H), [cache.cpp](./lab1/cache.cpp)]
 
 Step5: Use CACTI tool to estimate the power and energy consumed by the matrix multiplication and the potential power savings of locality optimizations.
 
