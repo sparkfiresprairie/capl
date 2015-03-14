@@ -95,6 +95,38 @@ In this lab, we write a parallel renderer in CUDA that draws colored circles. Wh
 Warm-up task to implement the SAXPY in CUDA. Compare the performance with the sequential CPU-based implementation of SAXPY (time, bandwidth, etc) [[saxpy.cu](./lab2/saxpy.cu)]
 
 ###Part2 - CUDA Warm-Up 2: Parallel Prefix-Sum (10 pts)
+In this part, we are asked to come up with parallel implementation of the function find_repeats which, given a list of integers A, returns a list of all indices i for which A[i] == A[i+1]. For example, given the array {1,2,2,1,1,1,3,5,3,3}, your program should output the array {1,3,4,8}. We implement find_repeats by first implementing parallel exclusive prefix-sum operation.
+
+The following "C-like" code is an iterative version of scan. We use parallel_for to indicate potentially parallel loops.
+ 
+        void exclusive_scan_iterative(int* start, int* end, int* output)
+        {
+            int N = end - start;
+            memmove(output, start, N*sizeof(int));
+            // upsweep phase.
+            for (int twod = 1; twod < N; twod*=2)
+            {
+             int twod1 = twod*2;
+             parallel_for (int i = 0; i < N; i += twod1)
+             {
+                 output[i+twod1-1] += output[i+twod-1];
+             }
+            }
+        
+            output[N-1] = 0;
+        
+            // downsweep phase.
+            for (int twod = N/2; twod >= 1; twod /= 2)
+            {
+             int twod1 = twod*2;
+             parallel_for (int i = 0; i < N; i += twod1)
+             {
+                 int t = output[i+twod-1];
+                 output[i+twod-1] = output[i+twod1-1];
+                 output[i+twod1-1] += t; // change twod1 to twod to reverse prefix sum.
+             }
+            }
+        }
 
 ###Part3 - A Simple Circle Renderer (85 pts)
 
