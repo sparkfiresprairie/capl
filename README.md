@@ -145,4 +145,19 @@ Code correctness and performance are tested on random input arrays. For referenc
     -------------------------------------------------------------------------
 
 ###Part3 - A Simple Circle Renderer (85 pts)
+The renderer accepts an array of circles (3D position, velocity, radius, color) as input. The basic sequential algorithm for rendering each frame is:
 
+    Clear image
+    for each circle
+        update position and velocity
+    for each circle
+        compute screen bounding box
+        for all pixels in bounding box
+            compute pixel center point
+            if center point is within the circle
+                compute color of circle at point
+                blend contribution of circle into image for this pixel
+
+The figure below illustrates the basic algorithm for computing circle-pixel coverage using point-in-circle tests. A circle contributes color to an output pixel only if the pixel's center lies within the circle.
+
+![image](https://github.com/sparkfiresprairie/capl/blob/master/lab2/computing_contribution.png)
