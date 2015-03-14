@@ -128,7 +128,7 @@ The following "C-like" code is an iterative version of scan. We use parallel_for
         }
     }
     
-Code correctness and performance are tested on random input arrays. For reference, a scan score table is provided below, showing the performance of a simple CUDA implementation on a stampede cluster with a K20.
+Code correctness and performance are tested on random input arrays. For reference, a scan score table is provided below, showing the performance of a simple CUDA implementation on a stampede cluster with a K20. [[scan.cu](./lab2/scan.cu)]
    
     -------------------------
     Scan Score Table:
