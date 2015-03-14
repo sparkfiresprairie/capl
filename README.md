@@ -99,34 +99,33 @@ In this part, we are asked to come up with parallel implementation of the functi
 
 The following "C-like" code is an iterative version of scan. We use parallel_for to indicate potentially parallel loops.
  
-        void exclusive_scan_iterative(int* start, int* end, int* output)
+     void exclusive_scan_iterative(int* start, int* end, int* output)
+    {
+        int N = end - start;
+        memmove(output, start, N*sizeof(int));
+        // upsweep phase.
+        for (int twod = 1; twod < N; twod*=2)
         {
-            int N = end - start;
-            memmove(output, start, N*sizeof(int));
-            // upsweep phase.
-            for (int twod = 1; twod < N; twod*=2)
-            {
-             int twod1 = twod*2;
-             parallel_for (int i = 0; i < N; i += twod1)
-             {
-                 output[i+twod1-1] += output[i+twod-1];
-             }
-            }
-        
-            output[N-1] = 0;
-        
-            // downsweep phase.
-            for (int twod = N/2; twod >= 1; twod /= 2)
-            {
-             int twod1 = twod*2;
-             parallel_for (int i = 0; i < N; i += twod1)
-             {
-                 int t = output[i+twod-1];
-                 output[i+twod-1] = output[i+twod1-1];
-                 output[i+twod1-1] += t; // change twod1 to twod to reverse prefix sum.
-             }
-            }
+         int twod1 = twod*2;
+         parallel_for (int i = 0; i < N; i += twod1)
+         {
+             output[i+twod1-1] += output[i+twod-1];
+         }
         }
-
+    
+        output[N-1] = 0;
+    
+        // downsweep phase.
+        for (int twod = N/2; twod >= 1; twod /= 2)
+        {
+         int twod1 = twod*2;
+         parallel_for (int i = 0; i < N; i += twod1)
+         {
+             int t = output[i+twod-1];
+             output[i+twod-1] = output[i+twod1-1];
+             output[i+twod1-1] += t; // change twod1 to twod to reverse prefix sum.
+         }
+        }
+    }
 ###Part3 - A Simple Circle Renderer (85 pts)
 
