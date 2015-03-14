@@ -95,7 +95,7 @@ In this lab, we write a parallel renderer in CUDA that draws colored circles. Wh
 Warm-up task to implement the SAXPY in CUDA. Compare the performance with the sequential CPU-based implementation of SAXPY (time, bandwidth, etc) [[saxpy.cu](./lab2/saxpy.cu)]
 
 ###Part2 - CUDA Warm-Up 2: Parallel Prefix-Sum (10 pts)
-In this part, we are asked to come up with parallel implementation of the function find_repeats which, given a list of integers A, returns a list of all indices i for which A[i] == A[i+1]. For example, given the array {1,2,2,1,1,1,3,5,3,3}, your program should output the array {1,3,4,8}. We implement find_repeats by first implementing parallel exclusive prefix-sum operation.
+In this part, we are asked to come up with parallel implementation of the function find_repeats which, given a list of integers A, returns a list of all indices i for which A[i] == A[i+1]. For example, given the array {1,2,2,1,1,1,3,5,3,3}, our program should output the array {1,3,4,8}. We implement find_repeats by first implementing parallel exclusive prefix-sum operation. 
 
 The following "C-like" code is an iterative version of scan. We use parallel_for to indicate potentially parallel loops.
  
@@ -127,5 +127,22 @@ The following "C-like" code is an iterative version of scan. We use parallel_for
          }
         }
     }
+    
+Code correctness and performance are tested on random input arrays. For reference, a scan score table is provided below, showing the performance of a simple CUDA implementation on a stampede cluster with a K20.
+   
+    -------------------------
+    Scan Score Table:
+    -------------------------
+    -------------------------------------------------------------------------
+    | Element Count   | Fast Time       | Your Time       | Score           |
+    -------------------------------------------------------------------------
+    | 10000           | 0.387           | 0.010 (F)       | 0               |
+    | 100000          | 0.770           | 0.070 (F)       | 0               |
+    | 1000000         | 1.771           | 0.167 (F)       | 0               |
+    | 2000000         | 2.799           | 0.150 (F)       | 0               |
+    -------------------------------------------------------------------------
+    |                                   | Total score:    | 0/5             |
+    -------------------------------------------------------------------------
+
 ###Part3 - A Simple Circle Renderer (85 pts)
 
