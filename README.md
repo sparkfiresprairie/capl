@@ -161,3 +161,5 @@ The renderer accepts an array of circles (3D position, velocity, radius, color) 
 The figure below illustrates the basic algorithm for computing circle-pixel coverage using point-in-circle tests. A circle contributes color to an output pixel only if the pixel's center lies within the circle.
 
 ![image](https://github.com/sparkfiresprairie/capl/blob/master/lab2/computing_contribution.png)
+
+The CUDA implementation parallelizes computation across all input circles, assigning one circle to each CUDA thread.
