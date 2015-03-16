@@ -85,7 +85,6 @@ Step5: Use CACTI tool to estimate the power and energy consumed by the matrix mu
 
 Lab2.  A Simple CUDA Renderer
 -----------------------------
-100 points total
 
 ![image](https://github.com/sparkfiresprairie/capl/blob/master/lab2/lab2.png)
 
