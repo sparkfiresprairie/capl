@@ -161,4 +161,4 @@ The figure below illustrates the basic algorithm for computing circle-pixel cove
 
 ![image](https://github.com/sparkfiresprairie/capl/blob/master/lab2/computing_contribution.png)
 
-After familiarizing ourselves with the circle rendering algorithm as implemented in the reference code [[refRenderer.cpp](./lab2/refRenderer.cpp)], we should deal with CUDA one. The CUDA implementation parallelizes computation across all input circles, assigning one circle to each CUDA thread.
+After familiarizing ourselves with the circle rendering algorithm as implemented in the reference code [[refRenderer.cpp](./lab2/refRenderer.cpp)], we should deal with CUDA version. The CUDA implementation parallelizes computation across all input circles, assigning one circle to each CUDA thread.
