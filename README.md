@@ -127,21 +127,7 @@ The following "C-like" code is an iterative version of scan. We use parallel_for
         }
     }
     
-Code correctness and performance are tested on random input arrays. For reference, a scan score table is provided below, showing the performance of a simple CUDA implementation on a stampede cluster with a K20. [[scan.cu](./lab2/scan/scan.cu)]
-   
-    -------------------------
-    Scan Score Table:
-    -------------------------
-    -------------------------------------------------------------------------
-    | Element Count   | Fast Time       | Your Time       | Score           |
-    -------------------------------------------------------------------------
-    | 10000           | 0.387           | 0.010 (F)       | 0               |
-    | 100000          | 0.770           | 0.070 (F)       | 0               |
-    | 1000000         | 1.771           | 0.167 (F)       | 0               |
-    | 2000000         | 2.799           | 0.150 (F)       | 0               |
-    -------------------------------------------------------------------------
-    |                                   | Total score:    | 0/5             |
-    -------------------------------------------------------------------------
+Code correctness and performance are tested on random input arrays. For reference, a scan score table is provided, showing the performance of a simple CUDA implementation on a stampede cluster with a K20. [[scan.cu](./lab2/scan/scan.cu)]
 
 ###Part3 - A Simple Circle Renderer (85 pts)
 The renderer accepts an array of circles (3D position, velocity, radius, color) as input. The basic sequential algorithm for rendering each frame is:
