@@ -167,7 +167,7 @@ After familiarizing ourselves with the circle rendering algorithm as implemented
 
 2. Order: Renderer must perform updates to an image pixel in circle input order. That is, if circle 1 and circle 2 both contribute to pixel P, any image updates to P due to circle 1 must be applied to the image before updates to P due to circle 2.
 
-Our job is to write the fastest, correct CUDA renderer implementation you can. 
+Our job is to write the fastest, correct CUDA renderer implementation we can. 
 
 Our CUDA renderer's [[cudaRenderer.cu](./lab2/render/cudaRenderer.cu)] result is as follows:
 
