@@ -161,8 +161,16 @@ The figure below illustrates the basic algorithm for computing circle-pixel cove
 
 ![image](https://github.com/sparkfiresprairie/capl/blob/master/lab2/computing_contribution.png)
 
-After familiarizing ourselves with the circle rendering algorithm as implemented in the reference code [[refRenderer.cpp](./lab2/render/refRenderer.cpp)], we should deal with CUDA version. The CUDA implementation parallelizes computation across all input circles, assigning one circle to each CUDA thread.
-    
+After familiarizing ourselves with the circle rendering algorithm as implemented in the reference code [[refRenderer.cpp](./lab2/render/refRenderer.cpp)], we should deal with CUDA version. The provided CUDA implementation parallelizes computation across all input circles, assigning one circle to each CUDA thread. While this CUDA implementation is a complete implementation of the mathematics of a circle renderer, it contains several major errors that we have to fix. Specifically, the current implementation does not ensure image update is an atomic operation and it does not preserve the required order of image updates.
+
+1. Atomicity: All image update operations must be atomic. The critical region includes reading the four 32-bit floating-point values (the pixel's rgba color), blending the contribution of the current circle with the current image value, and then writing the pixel's color back to memory.
+
+2. Order: Renderer must perform updates to an image pixel in circle input order. That is, if circle 1 and circle 2 both contribute to pixel P, any image updates to P due to circle 1 must be applied to the image before updates to P due to circle 2.
+
+Our job is to write the fastest, correct CUDA renderer implementation you can. 
+
+Our CUDA renderer's [[cudaRenderer.cu](./lab2/render/cudaRenderer.cu)] result is as follows:
+
     ------------
     Score table:
     ------------
