@@ -437,7 +437,7 @@ __device__ void exclusiveScan(int tidx, uint* output, int length) {
 __global__ void kernelRenderCircles() {
 
     int threadIndex = threadIdx.y * TPB_X  + threadIdx.x;
-    //__shared__ uint circleOrder[TOTAL]; 
+    __shared__ uint circleOrder[TOTAL]; 
     __shared__ uint circleCount[TPB];
     __shared__ uint circleIndex[TPB];
 
@@ -505,7 +505,6 @@ __global__ void kernelRenderCircles() {
     // Use circleIndex array to store privateCircleOrder
     int total =  circleCount[TPB-1] + circleIndex[TPB-1];
     int privateIndex = circleIndex[threadIndex];
-    __shared__ uint circleOrder[total]; 
     
     for(int i = 0; i < privateCircleCount; i++) {
         circleOrder[privateIndex++] = privateCircleOrder[i];
