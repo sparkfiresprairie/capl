@@ -1,0 +1,11 @@
+---------------------------------------------------------
+Found 1 CUDA devices
+Device 0: Tesla K20m
+   SMs:        13
+   Global mem: 4800 MB
+   CUDA Cap:   3.5
+---------------------------------------------------------
+GPU_time: 3.986 ms
+CPU_time: 7.461 ms
+find_repeats: 1.872x speedup
+find_repeats outputs are correct!

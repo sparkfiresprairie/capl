@@ -1,0 +1,19 @@
+Rendering to 768x768 image
+Loaded data for 100000 circles from snow.par
+Loaded scene with 100000 circles
+---------------------------------------------------------
+Initializing CUDA for CudaRenderer
+Found 1 CUDA devices
+Device 0: Tesla K20m
+   SMs:        13
+   Global mem: 4800 MB
+   CUDA Cap:   3.5
+---------------------------------------------------------
+
+Running benchmark, 4 frames, beginning at frame 0 ...
+Clear:    0.0997 ms
+Advance:  0.0014 ms
+Render:   46.7016 ms
+Total:    46.8027 ms
+
+Overall:  0.1873 sec (note units are seconds)

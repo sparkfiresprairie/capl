@@ -1,0 +1,22 @@
+Rendering to 768x768 image
+Loaded scene with 10000 circles
+Loaded scene with 10000 circles
+---------------------------------------------------------
+Initializing CUDA for CudaRenderer
+Found 1 CUDA devices
+Device 0: Tesla K20m
+   SMs:        13
+   Global mem: 4800 MB
+   CUDA Cap:   3.5
+---------------------------------------------------------
+
+Running benchmark, 1 frames, beginning at frame 0 ...
+Copying image data from device
+Mismatch detected at pixel [328][192], value = 0.670850, expected 0.776864 for color Red
+***************** Correctness check passed **************************
+Clear:    0.1809 ms
+Advance:  0.0016 ms
+Render:   18.9746 ms
+Total:    19.1571 ms
+
+Overall:  1.5136 sec (note units are seconds)
