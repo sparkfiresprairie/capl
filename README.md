@@ -91,7 +91,7 @@ Lab2.  A Simple CUDA Renderer
 In this lab, we write a parallel renderer in CUDA that draws colored circles. While this renderer is very simple, parallelizing the renderer will require us to design and implement data structures that can be efficiently constructed and manipulated in parallel.
 
 ###Part1 - CUDA Warm-Up 1: SAXPY (5 pts)
-Warm-up task to implement the SAXPY in CUDA. Compare the performance with the sequential CPU-based implementation of SAXPY (time, bandwidth, etc) [[saxpy.cu](./lab2/saxpy.cu)]
+Warm-up task to implement the SAXPY in CUDA. Compare the performance with the sequential CPU-based implementation of SAXPY (time, bandwidth, etc) [[saxpy.cu](./lab2/saxpy/saxpy.cu)]
 
 ###Part2 - CUDA Warm-Up 2: Parallel Prefix-Sum (10 pts)
 In this part, we are asked to come up with parallel implementation of the function find_repeats which, given a list of integers A, returns a list of all indices i for which A[i] == A[i+1]. For example, given the array {1,2,2,1,1,1,3,5,3,3}, our program should output the array {1,3,4,8}. We implement find_repeats by first implementing parallel exclusive prefix-sum operation. 
@@ -127,7 +127,7 @@ The following "C-like" code is an iterative version of scan. We use parallel_for
         }
     }
     
-Code correctness and performance are tested on random input arrays. For reference, a scan score table is provided below, showing the performance of a simple CUDA implementation on a stampede cluster with a K20. [[scan.cu](./lab2/scan.cu)]
+Code correctness and performance are tested on random input arrays. For reference, a scan score table is provided below, showing the performance of a simple CUDA implementation on a stampede cluster with a K20. [[scan.cu](./lab2/scan/scan.cu)]
    
     -------------------------
     Scan Score Table:
@@ -161,7 +161,7 @@ The figure below illustrates the basic algorithm for computing circle-pixel cove
 
 ![image](https://github.com/sparkfiresprairie/capl/blob/master/lab2/computing_contribution.png)
 
-After familiarizing ourselves with the circle rendering algorithm as implemented in the reference code [[refRenderer.cpp](./lab2/refRenderer.cpp)], we should deal with CUDA version. The CUDA implementation parallelizes computation across all input circles, assigning one circle to each CUDA thread.
+After familiarizing ourselves with the circle rendering algorithm as implemented in the reference code [[refRenderer.cpp](./lab2/render/refRenderer.cpp)], we should deal with CUDA version. The CUDA implementation parallelizes computation across all input circles, assigning one circle to each CUDA thread.
     
     ------------
     Score table:
