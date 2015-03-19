@@ -156,18 +156,19 @@ After familiarizing ourselves with the circle rendering algorithm as implemented
 Our job is to write the fastest, correct CUDA renderer implementation we can. 
 
 Our CUDA renderer's [[cudaRenderer.cu](./lab2/render/cudaRenderer.cu)] result is as follows:
-
+    
     ------------
     Score table:
     ------------
     -------------------------------------------------------------------------------------------
     | Scene Name      | Naive Time (Tn) | Fast Time (To)  | Your Time (T)   | Score           |
     -------------------------------------------------------------------------------------------
-    | rgb             | 4.5             | 15.0298         | 0.7711          | 13              |
-    | rand10k         | 230             | 18.8380         | 18.8472         | 13              |
-    | rand100k        | 2305            | 189.3737        | 189.5614        | 13              |
-    | pattern         | 27              | 0.7825          | 0.7810          | 13              |
-    | snowsingle      | 2277            | 46.8027         | 46.8005         | 13              |
+    | rgb             | 4.5             | 1.1240          | 0.7739          | 13              |
+    | rand10k         | 230             | 17.1385         | 17.1260         | 13              |
+    | rand100k        | 2305            | 171.9914        | 171.7931        | 13              |
+    | pattern         | 27              | 0.7801          | 0.7828          | 13              |
+    | snowsingle      | 2277            | 46.1337         | 46.4280         | 13              |
     -------------------------------------------------------------------------------------------
                                                           | Total score:    | 65/65           |
     -------------------------------------------------------------------------------------------
+
