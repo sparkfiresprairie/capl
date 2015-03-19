@@ -162,3 +162,18 @@ The figure below illustrates the basic algorithm for computing circle-pixel cove
 ![image](https://github.com/sparkfiresprairie/capl/blob/master/lab2/computing_contribution.png)
 
 After familiarizing ourselves with the circle rendering algorithm as implemented in the reference code [[refRenderer.cpp](./lab2/refRenderer.cpp)], we should deal with CUDA version. The CUDA implementation parallelizes computation across all input circles, assigning one circle to each CUDA thread.
+    
+    ------------
+    Score table:
+    ------------
+    -------------------------------------------------------------------------------------------
+    | Scene Name      | Naive Time (Tn) | Fast Time (To)  | Your Time (T)   | Score           |
+    -------------------------------------------------------------------------------------------
+    | rgb             | 4.5             | 15.0298         | 0.7711          | 13              |
+    | rand10k         | 230             | 18.8380         | 18.8472         | 13              |
+    | rand100k        | 2305            | 189.3737        | 189.5614        | 13              |
+    | pattern         | 27              | 0.7825          | 0.7810          | 13              |
+    | snowsingle      | 2277            | 46.8027         | 46.8005         | 13              |
+    -------------------------------------------------------------------------------------------
+                                                          | Total score:    | 65/65           |
+    -------------------------------------------------------------------------------------------
