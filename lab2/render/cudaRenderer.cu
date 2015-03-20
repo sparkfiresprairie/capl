@@ -22,7 +22,7 @@
 #define TPB (TPB_X*TPB_Y)
 
 // Pixels Per Thread
-#define PPT_X 2 
+#define PPT_X 2
 #define PPT_Y 2
 #define PPT (PPT_X * PPT_Y)
 
